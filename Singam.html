@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connect With Us</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .action-box { margin: 20px auto; padding: 15px; border: 1px solid #ddd; border-radius: 10px; max-width: 300px; }
+        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 10px 0; }
+        .ig-btn { background: #E1306C; }
+        .yt-btn { background: #FF0000; }
+    </style>
+</head>
+<body>
+    <h1>Connect With Us</h1>
+    
+    <!-- 1. CONTACT DOWNLOAD (VCARD) -->
+    <div class="action-box">
+        <h3>Save Our Contact</h3>
+        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Singam%20Fashions%20Rajampet%0AORG:Your%20Company%0ATEL:+919550333582%0AEMAIL:singamfashionsrajampet@gmail.com%0AURL:https://yourwebsite.com%0AEND:VCARD" download="contact.vcf" class="btn">Download Contact</a>
+        <p>iPhone/Android will prompt to save.</p>
+    </div>
+    
+    <!-- 2. INSTAGRAM FOLLOW (DEEP LINK) -->
+    <div class="action-box">
+        <h3>Follow on Instagram</h3>
+        <a href="javascript:void(0);" onclick="openInstagram()" class="btn ig-btn">Follow Us</a>
+        <p>Tap to open Instagram.</p>
+    </div>
+    
+    <!-- 3. YOUTUBE SUBSCRIBE (DEEP LINK) -->
+    <div class="action-box">
+        <h3>Subscribe on YouTube</h3>
+        <a href="javascript:void(0);" onclick="openYouTube()" class="btn yt-btn">Subscribe</a>
+        <p>Tap to open YouTube.</p>
+    </div>
+
+    <script>
+        // Open Instagram (app if installed, else web)
+        function openInstagram() {
+            window.location.href = "instagram://user?username=singam_fashions_rajampet"; // App link
+            setTimeout(function() {
+                window.location.href = "https://instagram.com/singam_fashions_rajampet"; // Web fallback
+            }, 500);
+        }
+
+        // Open YouTube (app if installed, else web)
+        function openYouTube() {
+            window.location.href = "vnd.youtube://channel/UCwoKXkiF860_eYk1DWL7WJw"; // App link
+            setTimeout(function() {
+                window.location.href = "https://www.youtube.com/@singamFashionsRajampet"; // Web fallback
+            }, 500);
+        }
+    </script>
+</body>
+</html>
