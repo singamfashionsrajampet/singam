@@ -155,42 +155,30 @@
     </div>
 
     <script>
-        // Save Contact function for both iOS and Android
+        // Save Contact function that opens native contact UI
         function saveContact() {
-            // For most modern browsers
-            const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Singam Fashions Rajampet
-ORG:Singam Fashions Rajampet
-TEL:+919550333582
-EMAIL:singamfashionsrajampet@gmail.com
-URL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97
-END:VCARD`;
+            // Detect platform
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isAndroid = /Android/.test(navigator.userAgent);
             
-            // Create a Blob with the vCard data
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            
-            // Create a temporary anchor element
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Singam_Fashions.vcf';
-            a.style.display = 'none';
-            document.body.appendChild(a);
-            
-            // Trigger the click event
-            a.click();
-            
-            // Clean up
-            setTimeout(() => {
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-            }, 100);
-            
-            // Fallback for older devices
-            setTimeout(() => {
-                window.location.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vCardData);
-            }, 300);
+            if (isIOS) {
+                // iOS - Use telprompt URI scheme to open contacts
+                window.location.href = "telprompt:9550333582";
+                setTimeout(() => {
+                    // Fallback to regular tel: if telprompt fails
+                    window.location.href = "tel:9550333582";
+                }, 500);
+            } else if (isAndroid) {
+                // Android - Use intent to open contacts
+                window.location.href = "intent://add_contact/#Intent;scheme=com.android.contacts;action=com.android.contacts.activities.PeopleActivity;S.name=Singam%20Fashions%20Rajampet;S.phone=9550333582;S.email=singamfashionsrajampet@gmail.com;end";
+                setTimeout(() => {
+                    // Fallback to opening contacts app directly
+                    window.location.href = "content://com.android.contacts/contacts";
+                }, 500);
+            } else {
+                // Desktop fallback - show instructions
+                alert("Please use a mobile device to save this contact");
+            }
         }
 
         // Open Instagram (app if installed, else web)
