@@ -107,15 +107,15 @@
     <!-- Singam Fashions Logo -->
     <img src="https://github.com/singamfashionsrajampet/singam/blob/main/Logo-removebg.png?raw=true" alt="Singam Fashions Logo" class="logo">
     
-    <h1>Connect Singam Fashions</h1>
+    <h1>Connect With Singam Fashions</h1>
     
-    <!-- 1. CONTACT DOWNLOAD (VCARD) -->
+    <!-- 1. CONTACT SAVE INTERFACE -->
     <div class="action-box contact-box">
         <h3><i class="fas fa-address-card icon"></i> Save Our Contact</h3>
-        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Singam%20Fashions%20Rajampet%0AORG:SingamFashions%20Rajampet%0ATEL:+919550333582%0AEMAIL:singamfashionsrajampet@gmail.com%0AURL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97%0AEND:VCARD" download="Singam_Fashions.vcf" class="btn btn-contact">
-            <i class="fas fa-download"></i> Save to Contacts
+        <a href="#" onclick="saveContact()" class="btn btn-contact">
+            <i class="fas fa-user-plus"></i> Add to Contacts
         </a>
-        <p>One-tap save for iPhone & Android</p>
+        <p>Will open your device's contact save screen</p>
     </div>
     
     <!-- 2. INSTAGRAM FOLLOW -->
@@ -155,6 +155,44 @@
     </div>
 
     <script>
+        // Save Contact function for both iOS and Android
+        function saveContact() {
+            // For most modern browsers
+            const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:Singam Fashions Rajampet
+ORG:Singam Fashions Rajampet
+TEL:+919550333582
+EMAIL:singamfashionsrajampet@gmail.com
+URL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97
+END:VCARD`;
+            
+            // Create a Blob with the vCard data
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a temporary anchor element
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Singam_Fashions.vcf';
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            
+            // Trigger the click event
+            a.click();
+            
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 100);
+            
+            // Fallback for older devices
+            setTimeout(() => {
+                window.location.href = "data:text/vcard;charset=utf-8," + encodeURIComponent(vCardData);
+            }, 300);
+        }
+
         // Open Instagram (app if installed, else web)
         function openInstagram() {
             window.location.href = "instagram://user?username=singam_fashions_rajampet";
