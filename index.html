@@ -100,34 +100,6 @@
             display: block;
             object-fit: contain;
         }
-        
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 80%;
-            text-align: left;
-        }
-        
-        .close-modal {
-            float: right;
-            cursor: pointer;
-            font-size: 24px;
-        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -137,20 +109,20 @@
     
     <h1>Connect With Singam Fashions</h1>
     
-    <!-- 1. CONTACT SAVE INTERFACE -->
+    <!-- 1. CONTACT DOWNLOAD (VCARD) -->
     <div class="action-box contact-box">
         <h3><i class="fas fa-address-card icon"></i> Save Our Contact</h3>
-        <a href="#" onclick="saveContact()" class="btn btn-contact">
-            <i class="fas fa-user-plus"></i> Add to Contacts
+        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Singam%20Fashions%20Rajampet%0AORG:SingamFashions%20Rajampet%0ATEL:+919550333582%0AEMAIL:singamfashionsrajampet@gmail.com%0AURL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97%0AEND:VCARD" download="Singam_Fashions.vcf" class="btn btn-contact">
+            <i class="fas fa-download"></i> Save to Contacts
         </a>
-        <p>Will open your device's contact save screen</p>
+        <p>One-tap save for iPhone & Android</p>
     </div>
     
     <!-- 2. INSTAGRAM FOLLOW -->
     <div class="action-box instagram-box">
-        <h3><i class="fab fa-instagram icon"></i> Follow Us on Instagram</h3>
+        <h3><i class="fab fa-instagram icon"></i> Follow Us</h3>
         <a href="javascript:void(0);" onclick="openInstagram()" class="btn btn-ig">
-            <i class="fab fa-instagram"></i> Singam Fashions
+            <i class="fab fa-instagram"></i> @singam_fashions_rajampet
         </a>
         <p>See our latest collections & offers</p>
     </div>
@@ -166,7 +138,7 @@
 
     <!-- 4. FACEBOOK PAGE -->
     <div class="action-box facebook-box">
-        <h3><i class="fab fa-facebook icon"></i> Like Our Facebook Page</h3>
+        <h3><i class="fab fa-facebook icon"></i> Like Our Page</h3>
         <a href="javascript:void(0);" onclick="openFacebook()" class="btn btn-fb">
             <i class="fab fa-facebook-f"></i> Singam Fashions
         </a>
@@ -182,77 +154,7 @@
         <p>Open in Google Maps</p>
     </div>
 
-    <!-- Instruction Modal -->
-    <div id="iosModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <h3>How to Save Contact on iPhone</h3>
-            <ol>
-                <li>You'll see the phone number on your screen</li>
-                <li>Tap "Add to Contacts" (bottom left)</li>
-                <li>Select "Create New Contact"</li>
-                <li>Fill in these details:
-                    <ul>
-                        <li><strong>Name:</strong> Singam Fashions Rajampet</li>
-                        <li><strong>Phone:</strong> +91 95503 33582</li>
-                        <li><strong>Email:</strong> singamfashionsrajampet@gmail.com</li>
-                    </ul>
-                </li>
-                <li>Tap "Done" to save</li>
-            </ol>
-        </div>
-    </div>
-
     <script>
-        // Enhanced Save Contact function
-        function saveContact() {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-            const isAndroid = /Android/.test(navigator.userAgent);
-            
-            if (isIOS) {
-                // iOS solution with clear instructions
-                window.location.href = 'tel:9550333582';
-                document.getElementById('iosModal').style.display = 'flex';
-            } 
-            else if (isAndroid) {
-                // Android solution with multiple fallbacks
-                try {
-                    // First try with a hidden iframe
-                    const iframe = document.createElement('iframe');
-                    iframe.style.display = 'none';
-                    iframe.src = 'intent://add_contact/#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;S.name=Singam Fashions Rajampet;S.phone=+919550333582;S.email=singamfashionsrajampet@gmail.com;end';
-                    document.body.appendChild(iframe);
-                    
-                    // Fallback after delay
-                    setTimeout(() => {
-                        try {
-                            window.location.href = 'content://com.android.contacts/contacts';
-                        } catch (e) {
-                            showManualInstructions();
-                        }
-                    }, 300);
-                    
-                    // Clean up
-                    setTimeout(() => {
-                        document.body.removeChild(iframe);
-                    }, 1000);
-                } catch (e) {
-                    showManualInstructions();
-                }
-            } 
-            else {
-                showManualInstructions();
-            }
-        }
-
-        function showManualInstructions() {
-            alert("Please manually add this contact:\n\nName: Singam Fashions Rajampet\nPhone: +91 95503 33582\nEmail: singamfashionsrajampet@gmail.com\nAddress: See our Google Maps location");
-        }
-
-        function closeModal() {
-            document.getElementById('iosModal').style.display = 'none';
-        }
-
         // Open Instagram (app if installed, else web)
         function openInstagram() {
             window.location.href = "instagram://user?username=singam_fashions_rajampet";
