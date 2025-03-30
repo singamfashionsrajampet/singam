@@ -1,55 +1,187 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Connect With Us</title>
+    <title>Connect With Singam Fashions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        .action-box { margin: 20px auto; padding: 15px; border: 1px solid #ddd; border-radius: 10px; max-width: 300px; }
-        .btn { display: inline-block; padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; margin: 10px 0; }
-        .ig-btn { background: #E1306C; }
-        .yt-btn { background: #FF0000; }
+        :root {
+            --primary: #4a6bff;
+            --instagram: #E1306C;
+            --youtube: #FF0000;
+            --facebook: #1877F2;
+            --maps: #34B233;
+            --text-dark: #333;
+            --text-light: #666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .action-box {
+            margin: 25px auto;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 340px;
+            background: white;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        /* Custom backgrounds for each box */
+        .contact-box { background: rgba(74, 107, 255, 0.08); border-left: 4px solid var(--primary); }
+        .instagram-box { background: rgba(225, 48, 108, 0.08); border-left: 4px solid var(--instagram); }
+        .youtube-box { background: rgba(255, 0, 0, 0.08); border-left: 4px solid var(--youtube); }
+        .facebook-box { background: rgba(24, 119, 242, 0.08); border-left: 4px solid var(--facebook); }
+        .maps-box { background: rgba(52, 178, 51, 0.08); border-left: 4px solid var(--maps); }
+        
+        .action-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        h3 {
+            margin: 0 0 15px;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 10px 0;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn-contact { background: var(--primary); }
+        .btn-ig { background: var(--instagram); }
+        .btn-yt { background: var(--youtube); }
+        .btn-fb { background: var(--facebook); }
+        .btn-map { background: var(--maps); }
+        
+        p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin: 10px 0 0;
+        }
+        
+        .icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        
+        /* Logo styling with increased size */
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: contain;
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <h1>Connect With Us</h1>
+    <!-- Singam Fashions Logo -->
+    <img src="https://github.com/singamfashionsrajampet/singam/blob/main/Logo-removebg.png?raw=true" alt="Singam Fashions Logo" class="logo">
+    
+    <h1>Connect With Singam Fashions</h1>
     
     <!-- 1. CONTACT DOWNLOAD (VCARD) -->
-    <div class="action-box">
-        <h3>Save Our Contact</h3>
-        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Singam%20Fashions%20Rajampet%0AORG:SingamFashions%20Rajampet%0ATEL:+919550333582%0AEMAIL:singamfashionsrajampet@gmail.com%0AURL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97%0AEND:VCARD" download="contact.vcf" class="btn">Download Contact</a>
-        <p>iPhone/Android will prompt to save.</p>
+    <div class="action-box contact-box">
+        <h3><i class="fas fa-address-card icon"></i> Save Our Contact</h3>
+        <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:Singam%20Fashions%20Rajampet%0AORG:SingamFashions%20Rajampet%0ATEL:+919550333582%0AEMAIL:singamfashionsrajampet@gmail.com%0AURL:https://maps.app.goo.gl/gA6oP49Fc9sqWBD97%0AEND:VCARD" download="Singam_Fashions.vcf" class="btn btn-contact">
+            <i class="fas fa-download"></i> Save to Contacts
+        </a>
+        <p>One-tap save for iPhone & Android</p>
     </div>
     
-    <!-- 2. INSTAGRAM FOLLOW (DEEP LINK) -->
-    <div class="action-box">
-        <h3>Follow on Instagram</h3>
-        <a href="javascript:void(0);" onclick="openInstagram()" class="btn ig-btn">Follow Us</a>
-        <p>Tap to open Instagram.</p>
+    <!-- 2. INSTAGRAM FOLLOW -->
+    <div class="action-box instagram-box">
+        <h3><i class="fab fa-instagram icon"></i> Follow Us</h3>
+        <a href="javascript:void(0);" onclick="openInstagram()" class="btn btn-ig">
+            <i class="fab fa-instagram"></i> @singam_fashions_rajampet
+        </a>
+        <p>See our latest collections & offers</p>
     </div>
     
-    <!-- 3. YOUTUBE SUBSCRIBE (DEEP LINK) -->
-    <div class="action-box">
-        <h3>Subscribe on YouTube</h3>
-        <a href="javascript:void(0);" onclick="openYouTube()" class="btn yt-btn">Subscribe</a>
-        <p>Tap to open YouTube.</p>
+    <!-- 3. YOUTUBE SUBSCRIBE -->
+    <div class="action-box youtube-box">
+        <h3><i class="fab fa-youtube icon"></i> Subscribe</h3>
+        <a href="javascript:void(0);" onclick="openYouTube()" class="btn btn-yt">
+            <i class="fab fa-youtube"></i> Singam Fashions
+        </a>
+        <p>Watch styling tips & fashion videos</p>
+    </div>
+
+    <!-- 4. FACEBOOK PAGE -->
+    <div class="action-box facebook-box">
+        <h3><i class="fab fa-facebook icon"></i> Like Our Page</h3>
+        <a href="javascript:void(0);" onclick="openFacebook()" class="btn btn-fb">
+            <i class="fab fa-facebook-f"></i> Singam Fashions
+        </a>
+        <p>Get updates on new arrivals</p>
+    </div>
+
+    <!-- 5. LOCATION -->
+    <div class="action-box maps-box">
+        <h3><i class="fas fa-map-marker-alt icon"></i> Visit Our Store</h3>
+        <a href="javascript:void(0);" onclick="openMaps()" class="btn btn-map">
+            <i class="fas fa-directions"></i> Get Directions
+        </a>
+        <p>Open in Google Maps</p>
     </div>
 
     <script>
         // Open Instagram (app if installed, else web)
         function openInstagram() {
-            window.location.href = "instagram://user?username=singam_fashions_rajampet"; // App link
-            setTimeout(function() {
-                window.location.href = "https://instagram.com/singam_fashions_rajampet"; // Web fallback
+            window.location.href = "instagram://user?username=singam_fashions_rajampet";
+            setTimeout(() => {
+                window.location.href = "https://instagram.com/singam_fashions_rajampet";
             }, 500);
         }
 
         // Open YouTube (app if installed, else web)
         function openYouTube() {
-            window.location.href = "vnd.youtube://channel/UCwoKXkiF860_eYk1DWL7WJw"; // App link
-            setTimeout(function() {
-                window.location.href = "https://www.youtube.com/@singamFashionsRajampet"; // Web fallback
+            window.location.href = "vnd.youtube://channel/UCwoKXkiF860_eYk1DWL7WJw";
+            setTimeout(() => {
+                window.location.href = "https://www.youtube.com/@singamFashionsRajampet";
             }, 500);
+        }
+
+        // Open Facebook (app if installed, else web)
+        function openFacebook() {
+            window.location.href = "fb://page/61568589662330";
+            setTimeout(() => {
+                window.location.href = "https://www.facebook.com/profile.php?id=61568589662330";
+            }, 500);
+        }
+
+        // Open Google Maps
+        function openMaps() {
+            window.location.href = "https://maps.app.goo.gl/gA6oP49Fc9sqWBD97";
         }
     </script>
 </body>
