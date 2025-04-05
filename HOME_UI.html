@@ -2,19 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Singam Fashions Rajampet</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:wght@700&family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://github.com/singamfashionsrajampet/singam/raw/main/Images/SF.jpg" type="image/png">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore stylish clothing for men, women, boys, and girls at Singam Fashions Rajampet.">
+  <meta property="og:title" content="Singam Fashions Rajampet">
+  <meta property="og:description" content="Fashion for Gents, Ladies, Boys, and Girls.">
+  <meta property="og:image" content="https://github.com/singamfashionsrajampet/singam/raw/main/Images/SF.jpg">
+  <meta property="og:type" content="website">
+
   <style>
     * {
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+      font-size: calc(100vw / 100);
+    }
+
+    body {
+      min-height: 100vh;
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Open Sans', sans-serif;
       background-color: #fff8f0;
       color: #333;
       display: flex;
@@ -24,24 +42,45 @@
     header {
       background: linear-gradient(to right, #7b4397, #dc2430);
       color: #fff;
-      padding: 60px 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: nowrap;
       text-align: center;
+    }
+
+    nav {
+      margin-left: auto;
+    }
+
+    nav a {
+      color: #ffe6eb;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 250px;
     }
 
     header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-size: 2rem;
       font-weight: bold;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
       margin: 0;
-      white-space: normal;
+      white-space: nowrap;
     }
 
     header p {
-      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-size: 1.2rem;
       color: #ffe6eb;
-      margin: 10px 0 0;
-      white-space: normal;
+      margin: 5px 0 0;
+      white-space: nowrap;
     }
 
     .product-grid {
@@ -91,11 +130,11 @@
     footer {
       background: #fafafa;
       color: #444;
-      padding: 20px 10px;
+      padding: 5px 10px;
       border-top: 1px solid #ddd;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       text-align: center;
-      line-height: 1.6;
+      line-height: 1.2;
       margin-top: auto;
     }
 
@@ -103,20 +142,51 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
     }
 
     footer img {
-      width: 100px;
+      max-width: 100px;
       height: auto;
-      border-radius: 8px;
     }
 
     .footer-text {
       flex: 1;
       min-width: 250px;
+      font-size: 0.95rem;
+      line-height: 1.1;
+      margin: 0;
+      font-family: 'Roboto Slab', serif;
+    }
+
+    .footer-text p {
+      margin: 1px 0;
+      font-weight: normal;
+    }
+
+    .footer-text p:first-child {
+      font-weight: normal;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+      z-index: 100;
+    }
+
+    .whatsapp-float i {
+      margin-top: 15px;
     }
 
     @media (max-width: 768px) {
@@ -128,36 +198,50 @@
       footer img {
         margin: 10px auto;
       }
+
+      header {
+        flex-direction: column;
+      }
+
+      header h1, header p {
+        white-space: normal;
+      }
     }
   </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
   <header>
-    <h1>Welcome to Singam Fashions Rajampet Clothing Store</h1>
-    <p>Fashion for Gents, Ladies, Boys, and Girls</p>
+    <div class="header-text">
+      <h1>Welcome to Singam Fashions Rajampet Clothing Store</h1>
+      <p>Fashion for Gents, Ladies, Boys, and Girls</p>
+    </div>
+    <nav>
+      <a href="#footer">Contact</a>
+    </nav>
   </header>
 
   <section class="product-grid">
     <a href="https://levi.in/" class="product">
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/Mens.jpg" alt="Gents" />
+      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/Mens.jpg" alt="Men's clothing collection - Gents Wear" />
       <div class="product-info">
         <h4>Gents Wear</h4>
       </div>
     </a>
     <a href="https://www.google.co.in/" class="product">
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/Ladies.jpg" alt="Ladies" />
+      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/Ladies.jpg" alt="Women's clothing collection - Ladies Wear" />
       <div class="product-info">
         <h4>Ladies Wear</h4>
       </div>
     </a>
     <a href="https://www.flipkart.com/" class="product">
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/KidsBoys.jpg" alt="Boys" />
+      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/KidsBoys.jpg" alt="Kids collection - Boys Wear" />
       <div class="product-info">
         <h4>Boys Wear</h4>
       </div>
     </a>
     <a href="https://www.amazon.in/" class="product">
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/kids_Girls.jpg" alt="Girls" />
+      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/kids_Girls.jpg" alt="Kids collection - Girls Wear" />
       <div class="product-info">
         <h4>Girls Wear</h4>
       </div>
@@ -166,17 +250,20 @@
 
   <div style="height: 2px; background: linear-gradient(to right, #7b4397, #dc2430); margin: 0 20px;"></div>
 
-  <footer>
+  <footer id="footer">
     <div class="footer-content">
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/SF.jpg" alt="Left Store Image" />
+      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/VJY.jpg" alt="Left Store Image" />
       <div class="footer-text">
         <p><strong>Singam Fashions Rajampet</strong></p>
-        <p><strong>Proprietors:</strong> Nagarjuna Reddy & Sanjeeva Reddy</p>
+        <p>Proprietors: Nagarjuna Reddy & Sanjeeva Reddy</p>
         <p>2/326 RS Road, Near Old Bus Stand, Rajampet, Annamayya Dist, AP, India - 516115</p>
-        <p>📞 +91 9550333582 | ✉️ singamfashionsrajampet@gmail.in</p>
+        <p>📞 <a href="tel:+919550333582">+91 9550333582</a> | ✉️ <a href="mailto:singamfashionsrajampet@gmail.com">singamfashionsrajampet@gmail.com</a></p>
       </div>
-      <img src="https://github.com/singamfashionsrajampet/singam/raw/main/Images/VJY.jpg" alt="Right Store Image" />
     </div>
   </footer>
+
+  <a href="https://wa.me/919550333583?text=Hi,%20I%20want%20to%20enquire%20about%20Singam%20Fashions%20Rajampet." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
