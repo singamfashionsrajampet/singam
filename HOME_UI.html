@@ -33,27 +33,24 @@
       font-size: clamp(1.8rem, 3vw, 3rem);
       font-weight: bold;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin: 0;
+      white-space: normal;
     }
 
     header p {
       font-size: clamp(1.2rem, 2vw, 1.7rem);
       color: #ffe6eb;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      margin: 10px 0 0;
+      white-space: normal;
     }
 
     .product-grid {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 25px;
       padding: 40px 20px;
-      max-width: 100%;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      width: 100%;
     }
 
     .product {
@@ -82,9 +79,6 @@
       padding: 15px;
       text-align: center;
       background: #f7f2ff;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
 
     .product-info h4 {
@@ -97,24 +91,36 @@
     footer {
       background: #fafafa;
       color: #444;
-      padding: 8px 10px 4px;
+      padding: 20px 10px;
       border-top: 1px solid #ddd;
       font-size: 0.9rem;
       text-align: center;
-      line-height: 1.4;
+      line-height: 1.6;
       margin-top: auto;
     }
 
-    .footer-img-right {
-      mix-blend-mode: normal;
+    .footer-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    footer img {
+      width: 100px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .footer-text {
+      flex: 1;
+      min-width: 250px;
     }
 
     @media (max-width: 768px) {
-      header h1, header p {
-        white-space: nowrap;
-      }
-
-      footer div {
+      .footer-content {
         flex-direction: column;
         text-align: center;
       }
@@ -135,44 +141,41 @@
     <a href="https://levi.in/" class="product">
       <img src="C:\\Users\\vreddy\\Downloads\\Website\\Mens.jpeg" alt="Gents" />
       <div class="product-info">
-        <h4>Gents Ware</h4>
+        <h4>Gents Wear</h4>
       </div>
     </a>
     <a href="https://www.google.co.in/" class="product">
       <img src="C:\\Users\\vreddy\\Downloads\\Website\\Ladies.jpg" alt="Ladies" />
       <div class="product-info">
-        <h4>Ladies Ware</h4>
+        <h4>Ladies Wear</h4>
       </div>
     </a>
     <a href="https://www.flipkart.com/" class="product">
-      <img src="C:\Users\vreddy\Downloads\Website\KidsBoys.png" alt="Boys" />
+      <img src="C:\\Users\\vreddy\\Downloads\\Website\\KidsBoys.png" alt="Boys" />
       <div class="product-info">
-        <h4>Boys Ware</h4>
+        <h4>Boys Wear</h4>
       </div>
     </a>
     <a href="https://www.amazon.in/" class="product">
-      <img src="C:\Users\vreddy\Downloads\Website\kids_Girls.jpg" alt="Girls" />
+      <img src="C:\\Users\\vreddy\\Downloads\\Website\\kids_Girls.jpg" alt="Girls" />
       <div class="product-info">
-        <h4>Girls Ware</h4>
+        <h4>Girls Wear</h4>
       </div>
     </a>
   </section>
 
-  <!-- Divider Line Below Products -->
   <div style="height: 2px; background: linear-gradient(to right, #7b4397, #dc2430); margin: 0 20px;"></div>
 
-  <div class="divider"></div>
-
   <footer>
-    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
-      <img src="C:\\Users\\vreddy\\Downloads\\Website\\SF.png" alt="Left Store Image" style="width: 100px; height: auto; border-radius: 8px; margin: 5px;" />
-      <div style="flex: 1; text-align: center; min-width: 250px;">
+    <div class="footer-content">
+      <img src="C:\\Users\\vreddy\\Downloads\\Website\\SF.png" alt="Left Store Image" />
+      <div class="footer-text">
         <p><strong>Singam Fashions Rajampet</strong></p>
         <p><strong>Proprietors:</strong> Nagarjuna Reddy & Sanjeeva Reddy</p>
         <p>2/326 RS Road, Near Old Bus Stand, Rajampet, Annamayya Dist, AP, India - 516115</p>
         <p>📞 +91 9550333582 | ✉️ singamfashionsrajampet@gmail.in</p>
       </div>
-      <img src="C:\\Users\\vreddy\\Downloads\\Website\\VJY.png" alt="Right Store Image" class="footer-img-right" style="width: 100px; height: auto; border-radius: 8px; margin: 5px;" />
+      <img src="C:\\Users\\vreddy\\Downloads\\Website\\VJY.png" alt="Right Store Image" />
     </div>
   </footer>
 </body>
